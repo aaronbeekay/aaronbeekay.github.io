@@ -1,7 +1,5 @@
 ## I'm Aaron Bonnell-Kangas. 
-I make a living as an electrical engineer, and I'm currently living in Detroit, MI.
-
-In the past, I've gotten excited about electric vehicles (and spent a lot of time building them on [Buckeye Current](http://current.osu.edu/)), connected devices, and embedded electronics. I also spend a lot of time thinking about the social impact of technology and how technology can be used to improve the lives of all people.
+I get excited about electric vehicles (I spent a lot of time building them on [Buckeye Current](http://current.osu.edu/)), connected devices, and embedded electronics. I also spend a lot of time thinking about the social impact of technology and how technology can be used to improve the lives of all people.
 
 If you want to dig through all my stuff or get a hold of me, you might try:
 
