@@ -1,37 +1,12 @@
-## Welcome to GitHub Pages
+## I'm Aaron Bonnell-Kangas. 
+I make a living as an electrical engineer, and I'm currently living in Detroit, MI.
 
-You can use the [editor on GitHub](https://github.com/aaronbeekay/aaronbeekay.github.io/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
+In the past, I've gotten excited about electric vehicles (and spent a lot of time building them on [Buckeye Current](http://current.osu.edu/)), connected devices, and embedded electronics. I also spend a lot of time thinking about the social impact of technology and how technology can be used to improve the lives of all people.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+If you want to dig through all my stuff or get a hold of me, you might try:
 
-### Markdown
+* My [GitHub](http://github.com/aaronbeekay)
+* My [Twitter](http://twitter.com/aaronbeekay)
+* My (ugh) [LinkedIn](https://www.linkedin.com/in/aaron-bonnell-kangas-4667b67)
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/aaronbeekay/aaronbeekay.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+But you should also feel free to email me at [abk@aaronbeekay.info](mailto:abk@aaronbeekay.info).
