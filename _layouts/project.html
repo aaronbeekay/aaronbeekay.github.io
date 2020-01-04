@@ -1,0 +1,49 @@
+{% assign project-slug = page.project-slug %}
+{% assign project-name = site.data.projects[project-slug]['project-name'] %}
+{% if page.index-page %}
+	{% assign index-page=True %}
+{% else %}
+	{% assign index-page=False %}
+{% endif %}
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>{{ project-name }}: {{ page.title }}</title>
+	{% include bootstrap-header.html %}
+  </head>
+  <body>
+  	<div class="container">
+  	{% include breadcrumb-nav.html project-slug='2019-report' index-page=index-page this-page-title=page.title %}
+		<div class="row">
+			<div class="col-md-3">
+				{% include project_nav_sidebar.html project-slug=project-slug %}
+			</div>
+			<div class="col-md-9">
+				<h2 class="mb-4">{{ page.title }}</h2>
+				{{ content }}
+			</div>
+		</div>
+    </div>
+    <script src="{{ '/assets/js/scale.fix.js' | relative_url }}"></script>
+
+
+	{% if site.google_analytics %}
+		<script type="text/javascript">
+			var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+			document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+		<script type="text/javascript">
+			try {
+			var pageTracker = _gat._getTracker("{{ site.google_analytics }}");
+			pageTracker._trackPageview();
+			} catch(err) {}
+		</script>
+	{% else %}
+		NO GOOGLE
+	{% endif %}
+  	{% include bootstrap-js.html %}
+  </body>
+</html>

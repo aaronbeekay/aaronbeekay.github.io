@@ -1,0 +1,10 @@
+project-slug: 2019-report
+project-name: 2019 Report
+project-summary: don't know this one yet
+subpages:
+  - title: Analysis and plots
+    path: plots
+  - title: Methods
+    path: methods
+  - title: Data sources
+    path: data-sources

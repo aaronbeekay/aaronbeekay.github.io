@@ -1,0 +1,23 @@
+{% assign project-slug = include.project-slug %}
+{% assign project = site.data.projects[project-slug] %}
+
+<nav aria-label="breadcrumb">
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item">
+			<a href="/">Home</a>
+		</li>
+		<li class="breadcrumb-item">
+			<a href="/projects/">Projects</a>
+		</li>
+		{% if include.index-page %}
+			<li class="breadcrumb-item active" aria-current="page">
+				{{ project-name }}
+			</li>
+		{% else %}
+			<li class="breadcrumb-item">
+				<a href="/projects/{{ project-slug }}/">{{ project['project-name'] }}</a>
+			</li>
+			<li class="breadcrumb-item active" aria-current="page">{{ include.this-page-title }}</li>
+		{% endif %}
+	</ol>
+</nav>

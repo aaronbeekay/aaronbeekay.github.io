@@ -1,0 +1,56 @@
+---
+layout: none
+title: Plots and visualizations
+---
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>2019 analysis: plots and visualizations</title>
+
+    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+  	<div class="container">
+		{% include breadcrumb-nav.html project-name="2019 Report" project-slug="2019-report" page-title=page.title %}
+		<div class="row">
+			<div class="col-md-4">
+				{% include project_nav_sidebar.html project-slug="2019-report" %}
+				
+			</div>
+			<div class="col-md-8">
+				<h2>Analysis plots</h2>
+				
+				<p>All of these plots are interactive if you click the page for a given plot - you can zoom and scroll around.</p>
+				<p>Later on, I hope to add some more context and analysis (correlations, process explanation, major events that influenced my behaviors).</p>
+				<p>If that's interesting to you, <a href="http://twitter.com/aaronbeekay">tell me</a> and I'll be a lot more motivated to get it done.</p>
+				<div class="card-columns">
+					{% assign all_plots = site.pages | where: 'layout', 'single-plot' %}
+					{% for plot in all_plots %}
+						<div class="card mb-3">
+							<a href="{{plot.url}}"><img class="card-img-top" src="/assets/images/{{plot.plot-slug}}-sm.png">
+							<div class="card-body">
+								<h5 class="card-title"><!-- <a href="{{plot.url}}"> -->{{plot.title}}</h5>
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+    </div>
+    <script src="{{ '/assets/js/scale.fix.js' | relative_url }}"></script>
+
+
+  {% include google-analytics.html %}
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
