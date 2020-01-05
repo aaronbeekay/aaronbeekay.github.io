@@ -4,7 +4,7 @@ project-slug: 2019-report
 title: Data sources
 ---
 
-A few notes on the sources for my report data.
+On the sources for my report data:
 
 ### Time tracking data
 Recorded manually - details on the [methods page](/projects/{{project-slug}}/methods).
