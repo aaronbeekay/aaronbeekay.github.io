@@ -1,5 +1,5 @@
 ## I'm Aaron Bonnell-Kangas. 
-I get excited about electric vehicles (I spent a lot of time building them on [Buckeye Current](http://current.osu.edu/)), connected devices, and embedded electronics. I also spend a lot of time thinking about the social impact of technology and how technology can be used to improve the lives of all people.
+I get excited about electric vehicles, connected devices, and electronics, among lots of other things. I also spend a lot of time thinking about the social impact of technology and how technology can be used to improve the lives of all people.
 
 If you want to dig through all my stuff or get a hold of me, you might try:
 
