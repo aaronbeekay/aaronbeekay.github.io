@@ -2,6 +2,7 @@
 layout: project
 project-slug: 2019-report
 title: A Summary Of My Behavior In 2019
+index-page: True
 ---
 I spent all of 2019 collecting data on what I did all day, almost every day.
 

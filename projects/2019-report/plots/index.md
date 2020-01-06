@@ -5,9 +5,11 @@ title: Analysis plots
 ---
 All of these plots are interactive if you click the page for a given plot - you can zoom and scroll around.
 
-Later on, I hope to add some more context and analysis (correlations, process explanation, major events that influenced my behaviors).
+*January 2019*: Round one of this report is the "raw data" plots that are up on this page. I haven't drawn any very interesting conclusions or mapped out correlations yet.
 
-If that's interesting to you, [tell me](http://twitter.com/aaronbeekay) and I'll be a lot more motivated to get it done.
+Next steps: clean up the data from the beginning of the year and put together some correlation plots.
+
+If this is interesting, please [tell me](http://twitter.com/aaronbeekay) – it's a great motivator for me to keep hacking at this.
 
 
 <div class="card-columns">

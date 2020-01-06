@@ -2,11 +2,17 @@
 {% assign project = site.data.projects[project-slug] %}
 {% assign project-name = project['project-name'] %}
 
-<h4 class="text-secondary"><a href="/projects/{{project-slug}}/">{{ project-name }}</a></h4>
+<h4 class="text-secondary">
+	{% unless include.index-page == True %}<a href="/projects/{{project-slug}}/">{% endunless %}
+	{{ project-name }}
+	{% unless include-index-page == True %}</a>{% endunless %}
+	</h4>
 <ul class="nav flex-column">
 	{% for subpage in site.data.projects[ project-slug ]['subpages'] %}
 	<li class="nav-item">
-		<a class="nav-link" href="/projects/{{project-slug}}/{{subpage.path}}/">{{subpage.title}}</a>
+		<a class="nav-link" href="/projects/{{project-slug}}/{{subpage.path}}/">
+			{{subpage.title}}
+		</a>
 	</li>			
 	{% endfor %}			
 </ul>
