@@ -4,16 +4,21 @@ project-slug: iaq-monitor
 title: I made an air quality sensor
 ---
 
-# title 
-
 Amidst the Summer of Funemployment in 2019, I put together an air quality sensor to try and quantify my concern about whether the warehouse ceiling was shedding concrete dust into my lungs.
 
-The sensor measures the amount of airborne dust (particulate matter) and breaks its measurement into three buckets: particles smaller than 1um, particles smaller than 2.5um, and particles smaller than 10um. The last two are often referred to as [PM2.5 and PM10](https://www.epa.gov/pm-pollution/particulate-matter-pm-basics).)
+The sensor measures the amount of airborne dust (particulate matter) and breaks its measurement into three categories: particles smaller than 1um, particles smaller than 2.5um, and particles smaller than 10um. The last two are often referred to as [PM2.5 and PM10](https://www.epa.gov/pm-pollution/particulate-matter-pm-basics).)
 
-(a little more about health effects here - why to care about PM2.5)
+I put this sensor up about six months ago and have been collecting air quality data from inside my house since then. I’ll go over the design of my particular sensor and then pull out a few highlights from the measurements I’ve taken.
+
+## Why?
+Why care about particulate matter pollution? I don’t usually need a good reason to start measuring things, but it turns out there are many good reasons to be aware of PM2.5 levels. There are a surprisingly wide range of physical health effects linked to particulate matter exposure, from serious to subtle. Air pollution (both indoor and outdoor) [contributes to nearly 1 in 10 deaths globally](https://ourworldindata.org/air-pollution).
+
+At the community level, increases in daily PM levels are tied to higher mortality, and lower PM levels reduce hospitalizations and deaths. When a 13-month strike at a steel mill in Utah lowered the PM levels by [x], pediatric hospital admissions were lowered by [y] and mortality reduced by [z]. Following up with individuals living in six American cities over about a decade showed that the residents of the dirtiest city had their life expectancy reduced by about two years compared to the cleanest city.
+
+The negative physical health consequences of PM pollution are surprising in magnitude, but I was even more surprised by the possible linkages between PM pollution and cognition. [This blog post](https://patrickcollison.com/pollution) from Patrick Collision has a great collection of relevant research, showing that small changes (~10 µg/m³) in PM2.5 levels can have significant effects on cognitive performance. 
 
 # Design
-**this section needs edited**
+I wanted this to be a little bit nicer than the typical pile of wires and circuits that are taped to surfaces around my house, so I designed an enclosure to go with the electronics.
 
 ![!Two CAD renders of the sensor next to a picture of the finished device](/assets/images/iaq_with_cad.jpg)
 
@@ -48,8 +53,6 @@ The indicator ring is another printed part with six RGB LEDs mounted inside. I'm
 
 I was excited to play with [OSH Park's flexible PCB fabrication service](https://docs.oshpark.com/services/flex/), so the idea was to print a single [flex PCB](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fyic-assm.com%2Fwp-content%2Fuploads%2F2018%2F06%2F04.jpg&f=1&nofb=1) that had all six LEDs on it, wrapped around a mounting surface in the bottom, and terminated in a plug that could connect directly to the main board. I never got around to doing this, although I still am excited about it.
 
-(pic of led assembly jig?)
-
 For the prototype here, I just hacked together six discrete RGB LED boards with hookup wire, and it works OK. I printed an assembly jig for the LEDs that holds them at the same spacing as the wire distance between the LEDs when they're installed in the sensor. This was a nice idea, but I still put them together pretty sloppy.
 
 ### Sensor
@@ -80,27 +83,32 @@ The sensor transmits its measurements every so often over [MQTT](http://mqtt.org
 There is no offline-sensor detection built in here, which is something I'd rather have - I occasionally find that the sensor has been offline for half a day without my noticing. The measurement data is lost in this case.
 
 # Results
+In general, the sensor has been an interesting and useful addition to the house - having real-time feedback in the form of the LED ring makes it clear exactly which activities are generating significant quantities of dust.
+
+**Plot: “typical day”**
+
+The original question this sensor was supposed to answer was: is the inside of the warehouse shedding abnormal or dangerous amount of concrete dust? The answer is pretty clearly “no”: in general, the interior PM measurements track the outside air quality for any given day, except when we are doing something that is generating fine particles.
+
+Here’s a neat example: in November 2019 I installed an air filter in our space. It’s basically just a 4” pleated filter with a blower fan behind it that’s running constantly. We can see the filter getting darker as it collects dust, but is it really making a difference in the air quality?
+
 {% include plots/pm25_before_after_filter.html %}
+Caption: 95th-percentile PM2.5 concentrations in our indoor air vs. time of day. The data comes from all of the sensor measurements since installation (**dates** - **dates**?), split into “before installation” and “after installation”, and bucketed into 5-minute intervals. The filled area behind each trace is ±1 stdev. 
 
-- form factor
-  - usage: hanging or tabletop
-  - stationary in house
-- construction
-- sensor/MCU
-  - sensor: PMS5003
-  - MCU: Particle Photon
-    - but I don't like it
-- LED indicator
-  - gif of it spinning
-  
-# Usage
-- placement in house
-  - house layout features: ceiling-mounted shop heater, overhead door, no interior walls
-- 
+Here’s a plot showing the typical PM2.5 in the indoor air over the course of a day, before and after I installed the air filter. My hypothesis is that the filter doesn’t do much to reduce the **peak** concentrations, but does reduce the PM content much more quickly when the source is removed. In the plot, you can see that the high-end values aren’t much different in the “before” and “after” traces, but the “before” trace never dips below (**value**), and the “after” trace sits at (**value**) during the least-active parts of the day.
 
-# Results
-- Typical day
-  - Raw values
-  - Histogram/distribution
-- Month or so
-- Before and after air filter installation
+# Next up
+I planned to build several of these units for around the house, but after inspecting the data from this one for a while, I realized that I wanted more sensors: at a minimum, temperature and humidity, but also some fancier measurements (CO and CO2 detection, VOCs, etc).
+
+The upgraded version is still in development - hopefully I’ll finish it this year. I’m always tempted to make a small production run of these things and sell them to folks, but I don’t really know if many people would want one if it doesn’t come with a polished phone app, and I don’t have the time to build that app.
+
+Anyway, stay tuned!
+
+# More reading
+If you’re hungry for more content, here are some of my [bookmarks](https://pinboard.in/search/u:aaronbeekay?query=iaq) over the course of building this:
+
+* [Health Effects of Particulate Air Pollution](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3367838/) - Douglas W. Dockery, **Annals of Epidemiology**, 2009 - very readable summary of the evolution of the public-health understanding of PM2.5
+* [Air Pollution and Public Health in Utah](https://www.health.utah.gov/utahair/pollutants/PM/) - Utah Department of Health, Bureau of Epidemiology - as the title suggests, Utah-specific in some places, but including a good outline of the PM2.5 problem
+* [The Impact of Indoor Climate on Human Cognition: Evidence from Chess Tournaments](http://conference.iza.org/conference_files/environ_2019/palacios_j24419.pdf) - Steffen Künn, Juan Paladins, Nico Pestel, conference paper - “We find that an increase of 10 μg/m3 raises the probability of making a [chess game] error by 1.5 percentage points, and increases the magnitude of the errors by 9.4%.”
+* [Pollution](https://patrickcollison.com/pollution) - Patrick Collision - a personal blog post with links to several other studies like the one above
+* [Table of Historical Particulate Matter (PM) National Ambient Air Quality Standards (NAAQS)](https://www.epa.gov/pm-pollution/table-historical-particulate-matter-pm-national-ambient-air-quality-standards-naaqs) - US Environmental Protection Agency - this was very useful to me when I was trying to decide what levels the color thresholds should be set at
+* [Air Quality Guidelines - Global Update 2005](http://www.euro.who.int/__data/assets/pdf_file/0005/78638/E90038.pdf) - World Health Organization, 2005 - an exhaustively cited overview, nearly 500 pages long, of the sources of, human exposure to, health effects of, impact of, and risks of air pollution
