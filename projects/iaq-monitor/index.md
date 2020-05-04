@@ -20,7 +20,7 @@ The negative physical health consequences of PM pollution are surprising in magn
 # Design
 I wanted this to be a little bit nicer than the typical pile of wires and circuits that are taped to surfaces around my house, so I designed an enclosure to go with the electronics.
 
-![!Two CAD renders of the sensor next to a picture of the finished device]({{site.baseurl}}assets/images/iaq_with_cad.jpg)
+![!Two CAD renders of the sensor next to a picture of the finished device](/assets/images/iaq_with_cad.jpg)
 <em>Render, render, real</em>
 
 When I designed the housing, I imagined it being able to hang from a cord or sit on somebody's desk as a personal monitor. The idea was that there would be a second power port at the bottom of the device, so you could plug it in when it was sitting on your desk without having the cable sprout out of the top of the thing. 
@@ -34,7 +34,7 @@ In practice, I like the "indicator ring" much better than a single status LED. R
 ## Construction
 This thing is all hacked together out of [perfboard](https://en.wikibooks.org/wiki/Practical_Electronics/perfboard). I printed a carrier for the electronics that fits inside the housing:
 
-![Exploded view]({{site.baseurl}}assets/images/iaq_exploded.png)
+![Exploded view](/assets/images/iaq_exploded.png)
 <em>Caption: An exploded view of the sensor assembly. All of the non-electronic parts are 3D printed.</em>
 
 Putting this together didn't require too many connections, so I assembled the perfboard bits ad-hoc on the bench with an eye towards compactness. When the electronics were working, I just measured what I'd made and made a carrier with mounting holes in the right places.
@@ -47,7 +47,7 @@ Putting this together didn't require too many connections, so I assembled the pe
 		<p>I added this little airwall in the carrier to try and keep air from recirculating, but I have no idea if it's effective at all.</p>
 	</div>
 	<div class="col-7 col-xs-12">
-		<img src="{{site.baseurl}}assets/images/iaq_airflow_cutaway.png" class="img-thumbnail" style="width: 100%" alt="Cutaway view of sensor with airflow indicated">
+		<img src="/assets/images/iaq_airflow_cutaway.png" class="img-thumbnail" style="width: 100%" alt="Cutaway view of sensor with airflow indicated">
 	</div>
 </div>
 <br>
@@ -57,10 +57,10 @@ The indicator ring is another printed part with six RGB LEDs mounted inside. I'm
 
 I was excited to play with <a href="https://docs.oshpark.com/services/flex/">OSH Park's flexible PCB fabrication service</a>, so the idea was to print a single [flex PCB](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fyic-assm.com%2Fwp-content%2Fuploads%2F2018%2F06%2F04.jpg&f=1&nofb=1) that had all six LEDs on it, wrapped around a mounting surface in the bottom, and terminated in a plug that could connect directly to the main board. I never got around to doing this, although I still am excited about it.
 
-<video autoplay loop class="img-thumbnail" src="{{site.baseurl}}assets/images/iaq_v1_animated.mp4"></video>
+<video autoplay loop class="img-thumbnail" src="/assets/images/iaq_v1_animated.mp4"></video>
 <em>A few different states of the indicator. Yellow and green indicate air quality measurements in a certain range. The ring spins blue on top of whatever color is displayed when it's trying to connect to the network.</em>
 
-<img src="{{site.baseurl}}assets/images/iaq_lens_section.png" class="img-thumbnail" alt="Section view of LED indicator ring">
+<img src="/assets/images/iaq_lens_section.png" class="img-thumbnail" alt="Section view of LED indicator ring">
 <em>A section view of the LED indicator ring. You can see the lens is thinnest in the center - whether that has any discernible effect is up for debate.</em>
 
 
@@ -68,11 +68,11 @@ I was excited to play with <a href="https://docs.oshpark.com/services/flex/">OSH
 For the prototype here, I just hacked together six discrete RGB LED boards with hookup wire, and it works OK. I printed an assembly jig for the LEDs that holds them at the same spacing as the wire distance between the LEDs when they're installed in the sensor. This was a nice idea, but I still put them together pretty sloppy.
 
 ### Sensor
-<img src="{{site.baseurl}}assets/images/iaq_pms5003.jpg" alt="A single PMS5003 sensor sitting on a perfect white background for no clear reason" class="float-right" width="500px">
+<img src="/assets/images/iaq_pms5003.jpg" alt="A single PMS5003 sensor sitting on a perfect white background for no clear reason" class="float-right" width="500px">
 
 I used a PMS5003 sensor as the heart of this thing - it is cheap ([$15 shipped on AliExpress](https://www.aliexpress.com/item/32618735056.html)), has good community support (there are tutorials on SparkFun and Adafruit, and open-source libraries for reading its output), and reasonably compact. It looks a lot like a clone of Honeywell's [HPM series PM sensors](https://sensing.honeywell.com/honeywell-sensing-particulate-hpm-series-sell-sheet-007608).
 
-![Schematic diagram of sensor internals]({{site.baseurl}}assets/images/iaq_operation_diagram_hpm.jpg)
+![Schematic diagram of sensor internals](/assets/images/iaq_operation_diagram_hpm.jpg)
 
 <em>This diagram lifted from the Honeywell HPM datasheet without permission.</em>
 
