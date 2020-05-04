@@ -22,9 +22,9 @@ theme: jekyll-theme-minimal
 title: Aaron Bonnell-Kangas
 email: abk@aaronbeekay.info
 baseurl: "/"
-description: I make a living as an electrical engineer, and I’m currently living in Detroit, MI.
+description: Thinking about stuff and making stuff. In Detroit since '16.
 google_analytics: "UA-89085557-1"
-url: "http://aaronbeekay.info"
+url: "http://aaronbeekay.info/"
 disqus: aaronbeekay-info
 show_downloads: false
 

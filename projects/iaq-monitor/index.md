@@ -20,8 +20,8 @@ The negative physical health consequences of PM pollution are surprising in magn
 # Design
 I wanted this to be a little bit nicer than the typical pile of wires and circuits that are taped to surfaces around my house, so I designed an enclosure to go with the electronics.
 
-![!Two CAD renders of the sensor next to a picture of the finished device](/assets/images/iaq_with_cad.jpg)
-<em>Caption: render, render, real</em>
+![!Two CAD renders of the sensor next to a picture of the finished device]({{site.baseurl}}assets/images/iaq_with_cad.jpg)
+<em>Render, render, real</em>
 
 When I designed the housing, I imagined it being able to hang from a cord or sit on somebody's desk as a personal monitor. The idea was that there would be a second power port at the bottom of the device, so you could plug it in when it was sitting on your desk without having the cable sprout out of the top of the thing. 
 
@@ -34,40 +34,47 @@ In practice, I like the "indicator ring" much better than a single status LED. R
 ## Construction
 This thing is all hacked together out of [perfboard](https://en.wikibooks.org/wiki/Practical_Electronics/perfboard). I printed a carrier for the electronics that fits inside the housing:
 
-![Exploded view](/assets/images/iaq_exploded.png)
+![Exploded view]({{site.baseurl}}assets/images/iaq_exploded.png)
 <em>Caption: An exploded view of the sensor assembly. All of the non-electronic parts are 3D printed.</em>
 
 Putting this together didn't require too many connections, so I assembled the perfboard bits ad-hoc on the bench with an eye towards compactness. When the electronics were working, I just measured what I'd made and made a carrier with mounting holes in the right places.
 
 ### Airflow
-The sensor has a tiny little internal fan that draws air in, and it exhausts it out of the four circular ports on the same side.
-
-![Cutaway view of sensor with airflow indicated](/assets/images/iaq_airflow_cutaway.png)
-<em>Caption: You can see the airwall (little black fin) next to the sensor (silver box) in this cutaway.</em>
-
-I added this little airwall in the carrier to try and keep air from recirculating, but I have no idea if it's effective at all.
+<div class="row">
+	<div class="col-5 col-xs-12">
+		<p>The sensor has a tiny little internal fan that draws air in, and it exhausts it out of the four circular ports on the same side.</p>
+		
+		<p>I added this little airwall in the carrier to try and keep air from recirculating, but I have no idea if it's effective at all.</p>
+	</div>
+	<div class="col-7 col-xs-12">
+		<img src="{{site.baseurl}}assets/images/iaq_airflow_cutaway.png" class="img-thumbnail" style="width: 100%" alt="Cutaway view of sensor with airflow indicated">
+	</div>
+</div>
+<br>
 
 ### Indicator ring
-<video autoplay loop src="/assets/images/iaq_v1_animated.mp4"></video>
-<em>Caption: A few different states of the indicator. Yellow and green indicate air quality measurements in a certain range. The ring spins blue on top of whatever color is displayed when it's trying to connect to the network.</em>
-
 The indicator ring is another printed part with six RGB LEDs mounted inside. I'm pleased with how the lens came out. It's got a concave internal face, to try and get the light to fade slightly at the top and the bottom of the ring, but I don't really think you can tell in person.
 
-![Section view of LED indicator ring](/assets/images/iaq_lens_section.png)
-<em>Caption: A section view of the LED indicator ring. You can see the lens is thinnest in the center - whether that has any discernible effect is up for debate.</em>
+I was excited to play with <a href="https://docs.oshpark.com/services/flex/">OSH Park's flexible PCB fabrication service</a>, so the idea was to print a single [flex PCB](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fyic-assm.com%2Fwp-content%2Fuploads%2F2018%2F06%2F04.jpg&f=1&nofb=1) that had all six LEDs on it, wrapped around a mounting surface in the bottom, and terminated in a plug that could connect directly to the main board. I never got around to doing this, although I still am excited about it.
 
-I was excited to play with [OSH Park's flexible PCB fabrication service](https://docs.oshpark.com/services/flex/), so the idea was to print a single [flex PCB](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fyic-assm.com%2Fwp-content%2Fuploads%2F2018%2F06%2F04.jpg&f=1&nofb=1) that had all six LEDs on it, wrapped around a mounting surface in the bottom, and terminated in a plug that could connect directly to the main board. I never got around to doing this, although I still am excited about it.
+<video autoplay loop class="img-thumbnail" src="{{site.baseurl}}assets/images/iaq_v1_animated.mp4"></video>
+<em>A few different states of the indicator. Yellow and green indicate air quality measurements in a certain range. The ring spins blue on top of whatever color is displayed when it's trying to connect to the network.</em>
+
+<img src="{{site.baseurl}}assets/images/iaq_lens_section.png" class="img-thumbnail" alt="Section view of LED indicator ring">
+<em>A section view of the LED indicator ring. You can see the lens is thinnest in the center - whether that has any discernible effect is up for debate.</em>
+
+
 
 For the prototype here, I just hacked together six discrete RGB LED boards with hookup wire, and it works OK. I printed an assembly jig for the LEDs that holds them at the same spacing as the wire distance between the LEDs when they're installed in the sensor. This was a nice idea, but I still put them together pretty sloppy.
 
 ### Sensor
-![A single PMS5003 sensor sitting on a perfect white background for no clear reason](/assets/images/iaq_pms5003.jpg)
+<img src="{{site.baseurl}}assets/images/iaq_pms5003.jpg" alt="A single PMS5003 sensor sitting on a perfect white background for no clear reason" class="float-right" width="500px">
 
 I used a PMS5003 sensor as the heart of this thing - it is cheap ([$15 shipped on AliExpress](https://www.aliexpress.com/item/32618735056.html)), has good community support (there are tutorials on SparkFun and Adafruit, and open-source libraries for reading its output), and reasonably compact. It looks a lot like a clone of Honeywell's [HPM series PM sensors](https://sensing.honeywell.com/honeywell-sensing-particulate-hpm-series-sell-sheet-007608).
 
-![Schematic diagram of sensor internals](/assets/images/iaq_operation_diagram_hpm.jpg)
+![Schematic diagram of sensor internals]({{site.baseurl}}assets/images/iaq_operation_diagram_hpm.jpg)
 
-<em>Caption: This diagram lifted from the Honeywell HPM datasheet without permission.</em>
+<em>This diagram lifted from the Honeywell HPM datasheet without permission.</em>
 
 The PMS500x sensors are laser-diffraction sensors: they shine a laser through the outside air that's been sucked into the sample chamber by the built-in fan. Particles get hit by the laser and scatter the beam, and larger particles scatter the beam differently from smaller particles, so a sensor on the other side of the sample chamber can measure the scattered laser light and estimate the quantity and size distribution of the particles in the air.
 
@@ -91,14 +98,14 @@ There is no offline-sensor detection built in here, which is something I'd rathe
 In general, the sensor has been an interesting and useful addition to the house - having real-time feedback in the form of the LED ring makes it clear exactly which activities are generating significant quantities of dust.
 
 {% include plots/typical_day_measurements.html %}
-<em>Caption: A typical day's measurements.</em>
+<em>A typical day's measurements.</em>
 
 The original question this sensor was supposed to answer was: is the inside of the warehouse shedding abnormal or dangerous amount of concrete dust? The answer is pretty clearly “no”: in general, the interior PM measurements track the outside air quality for any given day, except when we are doing something that is generating fine particles.
 
 Here’s a neat example: in November 2019 I installed an air filter in our space. It’s basically just a 4” pleated filter with a blower fan behind it that’s running constantly. We can see the filter getting darker as it collects dust, but is it really making a difference in the air quality?
 
 {% include plots/pm25_before_after_filter.html %}
-<em>Caption: 95th-percentile PM2.5 concentrations in our indoor air vs. time of day. The data comes from sensor measurements taken between July 2019 and April 2020, split into “before installation” and “after installation”, and bucketed into 5-minute intervals. The filled area behind each trace is ±1 stdev.</em>
+<em>95th-percentile PM2.5 concentrations in our indoor air vs. time of day. The data comes from sensor measurements taken between July 2019 and April 2020, split into “before installation” and “after installation”, and bucketed into 5-minute intervals. The filled area behind each trace is ±1 stdev.</em>
 
 Here’s a plot showing the typical PM2.5 in the indoor air over the course of a day, before and after I installed the air filter. My hypothesis is that the filter doesn’t do much to reduce the *peak* concentrations, but does reduce the PM content much more quickly when the source is removed. In the plot, you can see that the high-end values aren’t much different in the “before” and “after” traces, but the “before” trace never dips below ~22 µg/m³, and the “after” trace sits around 10 µg/m³ during the least-active parts of the day.
 
